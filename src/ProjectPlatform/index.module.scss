@@ -1,0 +1,144 @@
+$navWidth: 300px;
+$projectMarginTop: 10px;
+$primary-color: #666fff;
+$primary-color-base: #666666;
+
+.main {
+  position: relative;
+  background-color: #f1f1f1;
+  overflow: hidden;
+
+  .projectList {
+    .project {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      height: 160px;
+      padding: 36px 48px;
+      position: relative;
+      background: #ffffff;
+      box-shadow: 0px 0px 0px rgba(102, 111, 255, 0.08);
+      margin-bottom: 24px;
+      cursor: default;
+
+      &:hover {
+        box-shadow: 0px 8px 16px rgba(102, 111, 255, 0.08);
+      }
+
+      .icon {
+        margin-right: 36px;
+      }
+
+      .detailInfo {
+        font-size: 14px;
+        color: #999;
+
+        .name {
+          font-size: 18px;
+          color: #333;
+        }
+
+        .folderOpen {
+          margin-left: 10px;
+          cursor: pointer;
+        }
+
+        .path {
+          margin: 18px 0 8px;
+        }
+
+        .detail {
+          color: #8e8e8e;
+        }
+      }
+
+      .createdAt {
+        position: absolute;
+        right: 48px;
+        top: 38px;
+        font-size: 14px;
+        color: #999999;
+      }
+
+      .tag {
+        color: #666fff;
+        height: 32px;
+        line-height: 32px;
+        background: #eeefff;
+        font-size: 14px;
+        margin-left: 16px;
+        vertical-align: center !important;
+      }
+
+      .setting {
+        position: absolute;
+        right: 30px;
+        bottom: 40px;
+      }
+
+      .deleteButton {
+        position: absolute;
+        background-color: white;
+        cursor: pointer;
+        right: 12px;
+        bottom: 26px;
+        .icon {
+          color: $primary-color-base;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.layout {
+  background: #f5f5f5;
+  display: flex;
+  height: 100vh;
+
+  .header {
+    height: 72px;
+    line-height: 72px;
+    padding: 0 80px;
+    background: #fff;
+    flex-shrink: 0;
+    z-index: 10;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .content {
+    flex: 1;
+    margin: 0 80px;
+    overflow-y: auto;
+    font-size: 18px;
+
+    &::-webkit-scrollbar {
+      display: none;
+      /* Chrome Safari */
+    }
+
+    padding-bottom: 10px;
+  }
+
+  .contentTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+}
+
+.lang {
+  float: right;
+
+  .langEN,
+  .langCN {
+    cursor: pointer;
+  }
+
+  .active {
+    font-weight: bold;
+  }
+}

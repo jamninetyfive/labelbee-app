@@ -1,0 +1,57 @@
+.main {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  .projectTypeSelected {
+    position: absolute;
+
+    margin-right: 10px;
+    border-right: 1px solid black;
+    width: 100px;
+
+    .selected {
+      color: red;
+    }
+  }
+
+  .config {
+    margin-left: 120px;
+    overflow-y: scroll;
+    padding-right: 30px;
+    height: 460px;
+  }
+}
+.modalContent {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+
+  display: flex;
+
+  .config {
+    overflow-y: scroll;
+    padding: 0 30px;
+    height: 460px;
+    flex: 1;
+  }
+}
+.iconDisable {
+  cursor: not-allowed !important;
+}
+
+.inputNonePointer {
+  pointer-events: none;
+}
+
+:global {
+  .select-folder-disabled {
+    .ant-input-group-addon {
+      background: #f5f5f5;
+      cursor: not-allowed;
+
+      .anticon-folder-open {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

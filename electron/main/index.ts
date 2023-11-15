@@ -2,6 +2,8 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 import { update } from './update'
+import { ipcListen } from './ipcEvent';
+const electron = require('electron');
 
 // The built directory structure
 //
@@ -52,6 +54,7 @@ async function createWindow() {
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       nodeIntegration: true,
       contextIsolation: false,
+      webSecurity: false, // 允许使用本地资源
     },
   })
 
@@ -73,6 +76,22 @@ async function createWindow() {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
+
+  ipcListen(win);
+  electron.protocol.interceptFileProtocol(
+    'file',
+    (req, callback) => {
+      const url = req.url.substr(8);
+      let newUrl = url;
+      try {
+        newUrl = decodeURI(url);
+      } catch (e) {
+        console.error(e);
+      }
+
+      callback(newUrl);
+    },
+  );
 
   // Apply electron-updater
   update(win)

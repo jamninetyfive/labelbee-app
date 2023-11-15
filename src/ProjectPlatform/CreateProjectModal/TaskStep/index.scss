@@ -1,0 +1,22 @@
+.task-step-list {
+  .ant-list-item-action {
+    display: none;
+  }
+  .ant-list-item {
+    &:hover {
+      .ant-list-item-action {
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+  .ant-list-item-icon {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 18px;
+      margin: 0 4px;
+    }
+  }
+}
