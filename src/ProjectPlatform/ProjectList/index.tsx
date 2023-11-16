@@ -190,23 +190,27 @@ const ProjectList: React.FC<IProps> = ({ createProject }) => {
           payload: {
             fileList,
           },
-        });
+        })
 
         setTimeout(() => {
           const radioGroup = document.getElementsByClassName('ant-radio-group');
           const allRadioWrapper = document.getElementsByClassName('sensebee-radio-label');
           const allRadio = document.getElementsByClassName('ant-radio-wrapper');
+          const beeRadio = document.getElementsByClassName('sensebee-radio-group');
+          const beeAside = document.getElementsByClassName('bee-layout__side');
+          const beeSideBar = document.getElementsByClassName('bee-sidebar');
+          const beeSideLevel = document.getElementsByClassName('bee-sidebar__level');
           if (radioGroup) {
-            console.log('radioGroup', radioGroup);
-            radioGroup[0].style.position = 'relative';
-            radioGroup[0].style.paddingTop = '40px';
             // 创建一个搜索框，追加到radioGroup里面
             const searchInput = document.createElement('input');
             searchInput.className = 'ant-input';
-            searchInput.placeholder = '搜索';
-            searchInput.style.position = 'absolute';
-            searchInput.style.top = '0';
-            radioGroup[0].appendChild(searchInput);
+            searchInput.placeholder = '快速搜索分类';
+            beeSideBar[0].children[2].insertBefore(searchInput, beeSideBar[0].children[2].children[0]);
+            beeRadio[0].style.minHeight = '100vh';
+            beeRadio[0].style.paddingBottom = '40px';
+
+            beeAside[0].style.minWidth = '400px';
+            beeSideLevel[0].style.display = 'none';
 
             searchInput.addEventListener('keyup', (e: any) => {
               const searchValue = e.target.value;
@@ -222,7 +226,7 @@ const ProjectList: React.FC<IProps> = ({ createProject }) => {
             })
             
           }
-        }, 500)
+        }, 500);
       });
     }
   };
