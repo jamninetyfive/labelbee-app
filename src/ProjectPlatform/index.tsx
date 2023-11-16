@@ -70,7 +70,7 @@ const ProjectPlatform: React.FC<IProps> = (props) => {
       <Header className={styles.header}>
         <img style={{ width: 120 }} src={logo} alt='' />
 
-        <span className={styles.lang}>
+        {/* <span className={styles.lang}>
           <span
             className={`${styles.langCN} ${curLang === 'cn' ? styles.active : ''}`}
             onClick={() => changeLanguage('cn')}
@@ -84,7 +84,7 @@ const ProjectPlatform: React.FC<IProps> = (props) => {
           >
             En
           </span>
-        </span>
+        </span> */}
       </Header>
       <Content className={styles.content}>
         <div className={styles.contentTitle}>

@@ -191,6 +191,38 @@ const ProjectList: React.FC<IProps> = ({ createProject }) => {
             fileList,
           },
         });
+
+        setTimeout(() => {
+          const radioGroup = document.getElementsByClassName('ant-radio-group');
+          const allRadioWrapper = document.getElementsByClassName('sensebee-radio-label');
+          const allRadio = document.getElementsByClassName('ant-radio-wrapper');
+          if (radioGroup) {
+            console.log('radioGroup', radioGroup);
+            radioGroup[0].style.position = 'relative';
+            radioGroup[0].style.paddingTop = '40px';
+            // 创建一个搜索框，追加到radioGroup里面
+            const searchInput = document.createElement('input');
+            searchInput.className = 'ant-input';
+            searchInput.placeholder = '搜索';
+            searchInput.style.position = 'absolute';
+            searchInput.style.top = '0';
+            radioGroup[0].appendChild(searchInput);
+
+            searchInput.addEventListener('keyup', (e: any) => {
+              const searchValue = e.target.value;
+              console.log('sensebee-radio-label', allRadioWrapper);
+              for (let i = 0; i < allRadioWrapper.length; i++) {
+                const radioWrapper = allRadioWrapper[i];
+                if (radioWrapper.innerText.includes(searchValue)) {
+                  allRadio[i].style.display = 'flex';
+                } else {
+                  allRadio[i].style.display = 'none';
+                }
+              }
+            })
+            
+          }
+        }, 500)
       });
     }
   };

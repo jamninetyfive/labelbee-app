@@ -210,5 +210,6 @@ const resources = {
 
 i18n.addResourceBundle('en', 'translation', resources.en.translation, true);
 i18n.addResourceBundle('cn', 'translation', resources.cn.translation, true);
+i18n.changeLanguage('cn');
 
 export default i18n;
